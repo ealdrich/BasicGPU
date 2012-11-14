@@ -1,18 +1,11 @@
-% Grid for shape parameter (alpha)
-nA = 10;
-aMin = 3;
-aMax = 10;
-aGrid = aMin:((aMax-aMin)/(nA-1)):aMax;
+% Grid for order 2 coefficient
+nParam = 10000000;
+paramMin = 0.1;
+paramMax = 0.9;
+paramGrid = paramMin:((paramMax-paramMin)/(nParam-1)):paramMax;
 
-% Grid for scale parameter (beta)
-nB = 10;
-bMin = 3;
-bMax = 100;
-bGrid = bMin:((bMax-bMin)/(nB-1)):bMax;
-
-argMaxVals = zeros(nA,nB);
-for i = 1:nA
-    for j = 1:nB
-        argMaxVals(i,j) = maxGamma(aGrid(i)/2, aGrid(i), bGrid(j), 0.00001);
-    end
+% Maximize for each coefficient
+argMaxVals = zeros(nParam,1);
+for i = 1:nParam
+    argMaxVals(i) = maxPoly(2.2, paramGrid(i), 0.00001);
 end

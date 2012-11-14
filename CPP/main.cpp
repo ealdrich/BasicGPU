@@ -1,46 +1,50 @@
-#include <stdlib.h>
-#include <math.h>
-#include <ctime>
-#include <iostream>
+#include <Eigen/Dense>
 
-using namespace std;
+using namespace Eigen;
+
+double maxPoly(double x0, double coef, double tol){
+
+  // Iterate to convergence
+  double x = x0;
+  double diff = tol+1;
+  double firstDeriv, secondDeriv, xNew;
+  while(diff > tol){
+    
+    // Compute the first derivative
+    firstDeriv = 2.3 - 2*coef*x;
+         
+    // Compute the second derivative
+    secondDeriv = -2*coef;
+         
+    // Newton step
+    xNew = x - firstDeriv/secondDeriv;
+         
+    // Compute difference for convergence check and update
+    diff = abs(xNew - x);
+    x = xNew;
+                  
+  }
+     
+  // Function outpout
+  return x;
+
+}
 
 int main()
 {
 
-  int N = 100000;
-  int M = 10000;
+  // Grid for order 2 coefficient
+  int nParam = 1000000;
+  double paramMin = 0.1;
+  double paramMax = 0.9;
+  VectorXd paramGrid = VectorXd::LinSpaced(nParam, paramMin, paramMax);
 
-  clock_t start = clock();
-
-  double** randMat = new double*[N];
-  for(int i = 0 ; i < N ; ++i){
-    randMat[i] = new double[M];
-  }
-
-  for(int i = 0 ; i < N ; ++i){
-    for(int j = 0 ; j < N ; ++j){
-      randMat[i][j] = rand()/RAND_MAX;
-    }
-  }
-
-  cout << "Time to simulate RVs: " << (clock() - start)/(double)CLOCKS_PER_SEC << endl;
-
-  start = clock();
-
-  double** logRandMat = new double*[N];
-  for(int i = 0 ; i < N ; ++i){
-    logRandMat[i] = new double[M];
-  }
-
-  for(int i = 0 ; i < N ; ++i){
-    for(int j = 0 ; j < N ; ++j){
-      logRandMat[i][j] = log(randMat[i][j]);
-    }
+  // Maximize for each coefficient
+  VectorXd argMaxVals = VectorXd::Zero(nParam);
+  for(int i = 0 ; i < nParam ; ++i){
+    argMaxVals(i) = maxPoly(2.2, paramGrid(i), 0.00001);
   }
   
-  cout << "Time to compute logs: " << (clock() - start)/(double)CLOCKS_PER_SEC << endl;
-
   return 0;
 
 }
