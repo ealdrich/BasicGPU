@@ -1,6 +1,6 @@
 % Support of polynomial for plotting
 xMin = -10;
-xMax = 20;
+xMax = 30;
 nX = 1000;
 xGrid = xMin:((xMax-xMin)/(nX-1)):xMax;
 
@@ -20,4 +20,7 @@ for i = 2:nParam
         set(linePlot, 'Color', [paramGrid(i),paramGrid(i),paramGrid(i)])
     end
 end
-ylim([0 20]);
+xlim([-3 25]);
+ylim([0 18]);
+xlabel('x');
+ylabel('y');
