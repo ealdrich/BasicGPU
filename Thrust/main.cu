@@ -8,8 +8,8 @@ int main()
 
   // Grid for order 2 coefficient
   int nParam = 1000000000;
-  double paramMin = 0.1;
-  double paramMax = 0.9;
+  double paramMin = -0.9;
+  double paramMax = -0.1;
   thrust::device_vector<double> paramGrid(nParam);
   thrust::sequence(paramGrid.begin(), paramGrid.end(), paramMin, (paramMax-paramMin)/(nParam-1));
 

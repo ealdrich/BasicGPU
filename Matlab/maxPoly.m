@@ -6,10 +6,10 @@ function argMax = maxPoly(x0, coef, tol)
     while diff > tol
     
          % Compute the first derivative
-         firstDeriv = 2.3 - 2*coef*x;
+         firstDeriv = 2*coef*x + 2.3;
          
          % Compute the second derivative
-         secondDeriv = -2*coef;
+         secondDeriv = 2*coef;
          
          % Newton step
          xNew = x - firstDeriv/secondDeriv;

@@ -12,10 +12,10 @@ __global__ void maxPoly(double x0, double* coef, double tol, double* argMax){
   while(diff > tol){
     
     // Compute the first derivative
-    firstDeriv = 2.3 - 2*coef[i]*x;
+    firstDeriv = 2*coef[i]*x + 2.3;
          
     // Compute the second derivative
-    secondDeriv = -2*coef[i];
+    secondDeriv = 2*coef[i];
          
     // Newton step
     xNew = x - firstDeriv/secondDeriv;

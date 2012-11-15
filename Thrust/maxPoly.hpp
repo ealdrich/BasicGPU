@@ -2,16 +2,14 @@
 
 struct maxPoly{
 
-  // Attributes
+  // Arguments
   const double x0; ///< Initial value
   const double tol; ///< Convergence criterion
 
   /// Constructor
   maxPoly(const double _x0, const double _tol) : x0(_x0), tol(_tol) {}
 
-  /// Kernel to update the value function.
-  /// @param hx index of V0 (stored as a flat array).
-  /// @return Void.
+  /// Kernel
   __host__ __device__
   double operator()(const double coef) const {
 
@@ -22,10 +20,10 @@ struct maxPoly{
     while(diff > tol){
       
       // Compute the first derivative
-      firstDeriv = 2.3 - 2*coef*x;
+      firstDeriv = 2*coef*x + 2.3;
       
       // Compute the second derivative
-      secondDeriv = -2*coef;
+      secondDeriv = 2*coef;
       
       // Newton step
       xNew = x - firstDeriv/secondDeriv;

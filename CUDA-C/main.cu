@@ -5,8 +5,8 @@ int main()
 
   // Grid for order 2 coefficient
   int nParam = 1000000000;
-  double paramMin = 0.1;
-  double paramMax = 0.9;
+  double paramMin = -0.9;
+  double paramMax = -0.1;
   double* paramGrid = new double[nParam];
   for(int i = 0 ; i < nParam ; ++i) paramGrid[i] = paramMin + i*(paramMax-paramMin)/(nParam-1);
 
