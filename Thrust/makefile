@@ -5,6 +5,9 @@ CPP  = g++
 NVCC = nvcc
 NVCCFLAGS = -arch sm_20
 
+# Eigen Headers
+IEIGEN = /usr/local/Eigen
+
 # Add CUDA Paths
 ICUDA = /usr/local/cuda/include
 LCUDA = /usr/local/cuda/lib64
@@ -13,7 +16,7 @@ LCUDA = /usr/local/cuda/lib64
 LFLAGS += -lcuda -lcudart -L$(LCUDA) -lgomp
 
 # Include standard optimization flags
-CPPFLAGS = -O3 -c -I$(ICUDA)
+CPPFLAGS = -O3 -c -I$(ICUDA) -I$(IEIGEN)
 
 # List of all the objects
 OBJECTS  = 

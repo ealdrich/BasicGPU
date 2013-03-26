@@ -2,9 +2,14 @@
 #include <thrust/sequence.h>
 #include <thrust/transform.h>
 #include "maxPoly.hpp"
+#include "Eigen/Dense"
+
+using namespace Eigen
 
 int main()
 {
+
+  MatrixXd Test(5,5);
 
   // Grid for order 2 coefficient
   int nParam = 1000000000;

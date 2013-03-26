@@ -3,7 +3,7 @@
 __global__ void maxPoly(double x0, double* coef, double tol, double* argMax){
 
   // Thread ID
-  int i = threadIdx.x;
+  int i = blockIdx.x*blockDim.x + threadIdx.x;
 
   // Iterate to convergence
   double x = x0;
@@ -25,7 +25,7 @@ __global__ void maxPoly(double x0, double* coef, double tol, double* argMax){
     x = xNew;
                   
   }
-     
+
   // Function outpout
   argMax[i] = x;
 
