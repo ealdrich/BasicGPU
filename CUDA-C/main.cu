@@ -1,6 +1,4 @@
 #include "maxPoly.cu"
-#include <iostream>
-using namespace std;
 
 int main()
 {
@@ -14,8 +12,7 @@ int main()
 
   // Copy parameter grid from CPU to GPU memory
   double* paramGridDevice;
-  cudaError_t test = cudaMalloc((void**)&paramGridDevice, nParam*sizeof(double));
-  cout << test << endl;
+  cudaMalloc((void**)&paramGridDevice, nParam*sizeof(double));
   cudaMemcpy(paramGridDevice, paramGrid, nParam*sizeof(double), cudaMemcpyHostToDevice);
 
   // Storage for argmax values
