@@ -4,7 +4,7 @@ int main()
 {
 
   // Grid for order 2 coefficient
-  int nParam = 1023;
+  int nParam = 1000;
   double paramMin = -0.9;
   double paramMax = -0.1;
   double* paramGrid = new double[nParam];
@@ -21,8 +21,9 @@ int main()
 
   // Maximize for each coefficient
   int threadsPerBlock = 256;
-  int blocksPerGrid = (nParam+threadsPerBlock-1)/threadsPerBlock;
-  maxPoly<<<blocksPerGrid, threadsPerBlock>>>(2.2, paramGridDevice, 0.00001, argMaxValsDevice);
+  int blocksPerGrid = (int)ceil((double)nParam/threadsPerBlock);
+  maxPoly<<<blocksPerGrid, threadsPerBlock>>>(2.2, paramGridDevice,
+					      0.00001, nParam, argMaxValsDevice);
 
   // Copy argmax values from GPU to CPU memory
   double* argMaxVals = new double[nParam];
