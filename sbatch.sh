@@ -19,6 +19,6 @@ export PBS_QUEUE=batch
 # Set the max number of threads to use for programs using OpenMP. Should be <= ppn. Does nothing if the program doesn't use OpenMP.
 export OMP_NUM_THREADS=$SLURM_CPUS_ON_NODE
 OUTFILE="output.txt"
-/fslhome/fslcollab54/basicgpu/Thrust/./main > "$OUTFILE"
+/fslhome/fslcollab54/basicgpu/CUDA-C/./main > "$OUTFILE"
 
 exit 0
