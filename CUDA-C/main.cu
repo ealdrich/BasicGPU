@@ -4,7 +4,7 @@ int main()
 {
 
   // Grid for order 2 coefficient
-  int nParam = 1000;
+  int nParam = 1024;
   double paramMin = -0.9;
   double paramMax = -0.1;
   double* paramGrid = new double[nParam];
