@@ -1,5 +1,5 @@
 % Grid for order 2 coefficient
-nParam = 1024;
+nParam = 1000;
 paramMin = -0.9;
 paramMax = -0.1;
 paramGrid = paramMin:((paramMax-paramMin)/(nParam-1)):paramMax;

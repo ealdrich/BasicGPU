@@ -8,7 +8,7 @@ int main()
 {
 
   // Grid for order 2 coefficient
-  int nParam = 1024;
+  int nParam = 1000;
   double paramMin = -0.9;
   double paramMax = -0.1;
   VectorXd paramGrid = VectorXd::LinSpaced(nParam, paramMin, paramMax);

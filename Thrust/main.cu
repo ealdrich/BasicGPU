@@ -12,7 +12,7 @@ int main()
   MatrixXd Test(5,5);
 
   // Grid for order 2 coefficient
-  int nParam = 1024;
+  int nParam = 1000;
   double paramMin = -0.9;
   double paramMax = -0.1;
   thrust::device_vector<double> paramGrid(nParam);
