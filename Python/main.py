@@ -3,7 +3,7 @@ import maxPoly
 maxPoly = maxPoly.maxPoly
 
 # Grid for order 2 coefficient
-nParam = 1024
+nParam = 1000
 paramMin = -.9
 paramMax = -.1
 paramGrid = np.linspace(paramMin, paramMax, nParam)
