@@ -2,7 +2,7 @@
 CPP  = g++
 
 # Eigen Headers
-EIG_INC = /usr/local/Eigen
+EIG_INC = /fslhome/fslcollab54/fsl_groups/fslg_BYUMCL/Eigen
 
 # Include standard optimization flags
 CPPFLAGS = -O2 -g -c -I$(EIG_INC)

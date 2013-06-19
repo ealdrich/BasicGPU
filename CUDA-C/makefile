@@ -6,10 +6,10 @@ NVCC = nvcc
 NVCCFLAGS = -arch sm_20 # For fermi's in keeneland
 
 # Add CUDA Paths
-ICUDA = /usr/local/cuda/include
-LCUDA = /usr/local/cuda/lib64
+ICUDA = /apps/cuda/5.0.35/include
+LCUDA = /apps/cuda/5.0.35/lib64
 
-LFLAGS += -lcuda -lcudart -L$(LCUDA)
+LFLAGS += -lcudart -L$(LCUDA)
 
 # Include standard optimization flags
 CPPFLAGS = -O3 -c -I$(ICUDA)

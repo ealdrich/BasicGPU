@@ -1,15 +1,13 @@
+#include <iostream>
 #include <thrust/device_vector.h>
 #include <thrust/sequence.h>
 #include <thrust/transform.h>
 #include "maxPoly.hpp"
-#include "Eigen/Dense"
 
-using namespace Eigen
+using namespace std;
 
 int main()
 {
-
-  MatrixXd Test(5,5);
 
   // Grid for order 2 coefficient
   int nParam = 1000;
@@ -21,6 +19,10 @@ int main()
   // Maximize for each coefficient
   thrust::device_vector<double> argMaxVals(nParam);
   thrust::transform(paramGrid.begin(), paramGrid.end(), argMaxVals.begin(), maxPoly(2.2, 0.00001));
+
+  for(int i = 0 ; i < nParam ; ++i){
+    cout << argMaxVals[i] << endl;
+  }
   
   return 0;
 

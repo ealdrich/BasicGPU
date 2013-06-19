@@ -1,10 +1,13 @@
+#include <iostream>
 #include "maxPoly.cu"
+
+using namespace std;
 
 int main()
 {
 
   // Grid for order 2 coefficient
-  int nParam = 1000;
+  int nParam = 1024;
   double paramMin = -0.9;
   double paramMax = -0.1;
   double* paramGrid = new double[nParam];
@@ -28,6 +31,10 @@ int main()
   // Copy argmax values from GPU to CPU memory
   double* argMaxVals = new double[nParam];
   cudaMemcpy(argMaxVals, argMaxValsDevice, nParam*sizeof(double), cudaMemcpyDeviceToHost);
+
+  for(int i = 0 ; i < nParam ; ++i){
+    cout << argMaxVals[i] << endl;
+  }
 
   return 0;
 
