@@ -1,0 +1,18 @@
+This Matlab example depends on the Parallel Computing Toolbox:
+http://www.mathworks.com/products/parallel-computing/. Somewhat
+surprisingly, the Parallel Computing Toolbox allows users to access
+stand-alone CUDA-C kernels directly from Matlab code. This is unlike
+other high-level scientific software packages (R, Python, Mathematica)
+which require at least minimal modification by wrapping the kernel in
+a special file or function.
+
+To compile a stand-alone CUDA-C kernel for use in Matlab, follow the
+instructions at:
+http://www.mathworks.com/help/distcomp/run-cuda-or-ptx-code-on-gpu.html. For
+this example, it suffices to copy 'maxPoly.cu' from the CUDA-C directory 
+and issue the following command:
+
+nvcc -ptx maxPoly.cu
+
+This creates a file 'maxPoly.ptx' which can be called directly from
+Matlab.

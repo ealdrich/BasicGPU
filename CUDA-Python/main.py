@@ -1,4 +1,4 @@
-os.chdir('/home/ealdrich/Projects/BasicGPU/PyCUDA')
+os.chdir('/home/ealdrich/Projects/BasicGPU/CUDA-Python')
 from numbapro import cuda
 import numpy as np
 import maxPoly
@@ -8,14 +8,14 @@ maxPoly = maxPoly.maxPoly
 nParam = 1000
 paramMin = -.9
 paramMax = -.1
-paramGrid = np.linspace(paramMin, paramMax, nParam).astype(np.float32)
+paramGrid = np.linspace(paramMin, paramMax, nParam)
 
 # Storage for argmax values
-argMaxVals = np.zeros(nParam).astype(np.float32)
+argMaxVals = np.zeros(nParam)
 
 # Maximize for each coefficient
 threadsPerBlock = 256
-blocksPerGrid = int(ceil(nParam/threadsPerBlock))
-maxPoly[blocksPerGrid, threadsPerBlock](np.float32(2.2), paramGrid, np.float32(0.00001), nParam, argMaxVals)
+blocksPerGrid = int(ceil(float64(nParam)/threadsPerBlock))
+maxPoly[blocksPerGrid, threadsPerBlock](2.2, paramGrid, 0.00001, nParam, argMaxVals)
 
 print argMaxVals

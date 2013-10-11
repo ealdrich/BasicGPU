@@ -1,0 +1,19 @@
+This simple Python example depends on the NumbaPro module, distributed
+by Continuum Analytics: http://www.continuum.io/. NumbaPro can be
+obtained by first installing the Anaconda Python distribution (free
+for all), and subsequently the Anacaond Accelerate module (free for
+academics).
+
+The implementation in this archive also depends on the Numpy module,
+which is distributed with Anaconda. As a result, default floating
+point values are double precision. To modify the code for
+single-precision GPUs, all floating point values must be explicitly
+converted. In this case, the arrays 'paramGrid' and 'argMaxVals' would
+be converted with the commmand:
+
+paramGrid.astype(float32)
+argMaxVals.astype(float32)
+
+In addition, the two floating point arguments to 'maxPoly' must be
+decorated with 'float32(.)'. Finally, the arguments of the 'maxPoly'
+kernel must be changed from 'float64' to 'float32'.
