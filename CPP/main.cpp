@@ -18,7 +18,7 @@ int main()
   for(int i = 0 ; i < nParam ; ++i){
     argMaxVals(i) = maxPoly(2.2, paramGrid(i), 0.00001);
   }
-  
+
   return 0;
 
 }

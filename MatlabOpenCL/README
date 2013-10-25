@@ -1,0 +1,17 @@
+This Matlab example depends on the Matlab OpenCL Toolbox:
+https://code.google.com/p/opencl-toolbox/. Once the source code is
+downloaded, follow the instructions to build the file
+'openclcmd.mexa64', or the equivalent for your operating
+system. Matlab can then utilize OpenCL functionality after the files
+'openclcmd.mexa64', 'clbuffer.m', 'clkernel.m', 'clobject.m' and
+'opencl.m' have been copied to the desire Matlab working
+directory. Alternatively, the Matlab code that calls OpenCL can be
+relocated to the 'opencl-toolbox' source directory that was downloaded
+from the link above.
+
+Note that to use OpenCL, you must have an OpenCL device drive platform
+installed, as mentioned at
+https://code.google.com/p/opencl-toolbox/wiki/Install_Guide. Different
+platforms have different limitations regarding available hardware
+(e.g. the NVIDIA CUDA toolkit only allows OpenCL to access NVIDIA
+devices).
